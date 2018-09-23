@@ -4,9 +4,22 @@ library(RCurl)
 library(XML)
 
 
+# get grid
+
+url.grid <- "http://www.europeanwindstorms.org/database/dataDesc/grid_locations.csv"
+
+
+getXWSGRID <- function(url){
+  read.csv(file = url, header = T, col.names = c("gid","x","y"), skip = 1)
+}
+
+# getGRID(url.grid)
+
+
+
 # get event names
 
-url <- "http://www.europeanwindstorms.org/repository/"
+url.repo.names <- "http://www.europeanwindstorms.org/repository/"
 
 getXWSEventNames <- function(url){
   
@@ -20,7 +33,7 @@ getXWSEventNames <- function(url){
   
 }
 
-# en <- getXWSEventNames(url)
+# en <- getXWSEventNames(url.repo.names)
 
 
 # get event footprints
