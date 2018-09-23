@@ -1,16 +1,17 @@
 
 library(RColorBrewer)
-
 library(RCurl)
 library(XML)
 
 
-url <-  "http://www.met.reading.ac.uk/~extws/cgi-bin/storms/plots/"
+# get event names
+
+url <- "http://www.europeanwindstorms.org/repository/"
 
 getXWSEventNames <- function(url){
   
   doc = htmlParse(getURL(url), asText=TRUE)
-  plain.text <- xpathSApply(doc, "//p", xmlValue)
+  #plain.text <- xpathSApply(doc, "//p", xmlValue)
   els = getNodeSet(doc, "/html//a[@href]")
   
   dirs <- sapply(els, function(el) xmlGetAttr(el, "href"))
@@ -19,15 +20,10 @@ getXWSEventNames <- function(url){
   
 }
 
+# en <- getXWSEventNames(url)
 
-en <- getXWSEventNames(url)
 
-
-#
 # get event footprints
-#
-
-
 
 url.repo <- "http://www.europeanwindstorms.org/repository/"
 
@@ -47,6 +43,4 @@ getFootPrint <- function(url,EventName, ColNames, origvalcol){
   fp
 }
 
-
-
-fp <- getFootPrint(url.repo, en[1], c("gid","ws"), "ws")
+#fp <- getFootPrint(url.repo, en[1], c("gid","ws"), "ws")
