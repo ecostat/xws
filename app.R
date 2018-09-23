@@ -15,8 +15,6 @@ en <- getXWSEventNames(url.repo.names)
 fp <- getFootPrint(url.repo, en[1], c("gid","ws"), "ws")
 grid <- getXWSGRID(url.grid)
 
-
-
 # preprocessing
 
 x.sp <- SpatialPoints(grid[,c("x","y")])
@@ -29,7 +27,6 @@ e[,"ws.intensity"] <- cut(e[,"ws"], breaks = c(0,15,20,25,30,35,40,45,50,100) ) 
 #head(e)
 #table(e$ws.intensity)
 
-
 # visualize
 
 b <- bbox(x.sp)
@@ -38,18 +35,12 @@ b["x","max"] <- 15
 b["y","min"] <- 50
 b["y","max"] <- 60
 
-
 plot(x.spdf, add = F, col = 1, lwd = 0.3, cex = 0.2,
      xlim = c( b["x","min"], b["x","max"]), 
      ylim = c(b["y","min"], b["y","max"]), axes = T)
 
-
-
-
 #display.brewer.all()
 cols <- brewer.pal(9, "YlOrRd")
-cols
-
 
 points(x = e[,c("x")], y = e[,c("y")],  pch = 21,
        lwd = 1, 
