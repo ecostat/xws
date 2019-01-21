@@ -3,18 +3,19 @@ library(RColorBrewer)
 library(RCurl)
 library(XML)
 
+#' @name getXWSGRID 
+#' 
+#' @param url url directing to a grid-file in csv format
+#' 
+#' @return data.frame
 
-# get grid
-
-url.grid <- "http://www.europeanwindstorms.org/database/dataDesc/grid_locations.csv"
-
+# url.grid <- "http://www.europeanwindstorms.org/database/dataDesc/grid_locations.csv"
 
 getXWSGRID <- function(url){
   read.csv(file = url, header = T, col.names = c("gid","x","y"), skip = 1)
 }
 
-# getGRID(url.grid)
-
+# getXWSGRID(url.grid)
 
 
 # get event names

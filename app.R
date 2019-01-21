@@ -4,6 +4,7 @@ library(sp)
 
 source(file= "fun.R")
 
+# init
 
 url.grid <- "http://www.europeanwindstorms.org/database/dataDesc/grid_locations.csv"
 url.repo.names <- "http://www.europeanwindstorms.org/repository/"
@@ -47,7 +48,7 @@ points(x = e[,c("x")], y = e[,c("y")],  pch = 21,
        cex = 0.5, 
        bg = cols[e[,"ws.intensity"]],
        col = cols[e[,"ws.intensity"]])
-
+ 
 
 
 
