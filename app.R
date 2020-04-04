@@ -4,7 +4,9 @@ library(sp)
 
 source(file= "fun.R")
 
-# init
+# Titel
+
+# init 
 
 url.grid <- "http://www.europeanwindstorms.org/database/dataDesc/grid_locations.csv"
 url.repo.names <- "http://www.europeanwindstorms.org/repository/"
